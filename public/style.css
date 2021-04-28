@@ -1,3 +1,5 @@
+@import url(https://deploy-preview-1--roshanuidesign.netlify.app/main.css);
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 * {
   margin: 0;
@@ -11,100 +13,7 @@
   --vid-opacity5: rgba(76, 76, 228, 0.4);
   --vid-border5: 1px solid var(--vid-opacity5);
 }
-/* ============HEADER============== */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  align-items: center;
-  padding: 0.75rem;
-  box-shadow: 2px 2px 5px 2px var(--vid-opacity);
-  color: var(--vid-primary);
-}
-.header .header__logo {
-  border: 0;
-  background: transparent;
-  font-family: inherit;
-  display: flex;
-  align-items: center;
-  color: var(--vid-primary);
-  font-size: 1.5rem;
-}
-.search-section {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.search-section input {
-  width: 50%;
-  font-family: inherit;
-  border: 1px solid var(--vid-opacity5);
-  height: 2rem;
-  font-size: 1rem;
-  font-weight: 300;
-  border-right: none;
-}
-.search-section button {
-  padding: 0 0.25rem;
-  height: 2rem;
-  color: var(--vid-primary);
-  border: 1px solid var(--vid-opacity5);
-  background: transparent;
-}
-.header .login {
-  font-size: 1.25rem;
-}
-/* ============SideBar============== */
 
-.sidebar {
-  position: fixed;
-  width: 20vw;
-  border: var(--vid-border5);
-  height: 100%;
-  border-top: none;
-  margin-top: 1rem;
-  box-shadow: 2px 2px 2px var(--vid-opacity);
-}
-.sidebar div {
-  height: 3rem;
-}
-/* -----------screen size: 670px------------------------ */
-@media screen and (max-width: 670px) {
-  .sidebar {
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    height: 10vh;
-    border-top: 1px solid var(--vid-opacity5);
-    margin-top: 0;
-    padding: 1rem;
-  }
-  .header {
-    padding: 0.75rem;
-  }
-
-  .header .header__logo span .ooking {
-    display: none;
-  }
-  .header .header__logo {
-    padding: 0;
-  }
-  .search-section input {
-    width: 60%;
-    border: none;
-    border-bottom: 1px solid var(--vid-opacity5);
-  }
-  .search-section button {
-    padding: 0;
-    border: none;
-    font-size: 0.5rem;
-    border-bottom: 1px solid var(--vid-opacity5);
-  }
-  .header .login {
-    font-size: 1rem;
-  }
+body {
+  background: var(--third);
 }
