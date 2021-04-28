@@ -1,0 +1,12 @@
+.recommended-vid {
+  margin-left: 20%;
+  width: 80%;
+  height: 100vh;
+}
+
+/* -------small screen------ */
+@media screen and (max-width: 780px) {
+  .recommended-vid {
+    margin: 0;
+  }
+}
