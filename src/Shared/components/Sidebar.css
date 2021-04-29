@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 100;
 }
 .sidebar .sidebar__item {
   padding: 1rem 1vw 1vw 4vw;
@@ -24,7 +25,6 @@
 }
 .sidebar .sidebar__item:hover {
   background: rgba(128, 128, 128, 0.103);
-  color: rgba(0, 0, 0, 0.7);
 }
 .socialmedia {
   display: flex;
