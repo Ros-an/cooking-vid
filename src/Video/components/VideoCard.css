@@ -1,0 +1,30 @@
+.video-card {
+  margin-bottom: 2.5rem;
+  max-width: 16rem;
+  margin-right: 0.25rem;
+  flex: 1 1 0;
+}
+.video-card__thumbnail {
+  height: 9rem;
+  width: 15rem;
+}
+
+.video-card__info {
+  display: flex;
+  margin-top: 0.625rem;
+  padding-right: 1rem;
+}
+
+.video-card__text {
+  margin-left: 0.75rem;
+}
+
+.video-card__text > h4 {
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.video-card__text > p {
+  font-size: 0.875rem;
+  color: gray;
+}
