@@ -1,0 +1,24 @@
+.recommended-vid {
+  margin-left: 20%;
+  width: 80%;
+  padding: 2.5rem 1.25rem;
+  padding-bottom: 0;
+}
+.recommended-vid > h2 {
+  margin-left: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.recommended-vid__videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* -------small screen------ */
+@media screen and (max-width: 780px) {
+  .recommended-vid {
+    margin: 0;
+    width: 100%;
+    padding: 2.5rem 0;
+  }
+}
