@@ -1,14 +1,16 @@
-@import url('https://uidesign-lib.netlify.app/main.css');
+@import url("https://uidesign-lib.netlify.app/main.css");
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 * {
   margin: 0;
-  font-family: "Roboto", sans-serif;
   box-sizing: border-box;
 }
 
 :root {
   --vid-primary: rgb(76, 76, 228);
+  --vid-textColor: rgba(0, 0, 0, 0.9);
   --vid-opacity: rgba(76, 76, 228, 0.2);
   --vid-opacity5: rgba(76, 76, 228, 0.4);
   --vid-border5: 1px solid var(--vid-opacity5);
@@ -16,5 +18,7 @@
 
 body {
   background: var(--third);
+  font-family: "Roboto", sans-serif;
+
   /* color: rgba(0, 0, 0, 0.808); */
 }

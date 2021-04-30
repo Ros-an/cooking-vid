@@ -9,7 +9,7 @@ function Header() {
   return (
     <div className="header">
       <button className="header__logo">
-        <span>
+        <span className="logoText">
           C<span className="ooking">ooking</span> Vid
         </span>
         <PlayCircleFilledIcon style={{ fontSize: "1.5rem" }} />
