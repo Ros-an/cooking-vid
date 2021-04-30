@@ -35,6 +35,10 @@
     margin-right: 0;
     flex: none;
   }
+  .video-card__info {
+    padding-left: 1rem;
+  }
+
   .video-card__thumbnail {
     height: 12rem;
     width: 100%;
