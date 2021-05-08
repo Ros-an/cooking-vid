@@ -59,6 +59,7 @@
   display: none;
 }
 .header .header__logo .logoText,
+.search-section input,
 .header .login {
   font-family: "Montserrat", sans-serif;
 }
