@@ -3,29 +3,38 @@ import Avatar from "@material-ui/core/Avatar";
 
 import "./VideoCard.css";
 
-const videoData = {
-  title: "How to become a web dev in 10hr | 2021",
-  views: "25K Views",
-  timestamp: "5 hours ago",
-  channel: "Roshan Kr. Mahato",
-  image:
-    "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-};
-
-function VideoCard() {
-  const { image, title, views, timestamp, channel } = videoData;
+function VideoCard({ videoInfo }) {
+  const {
+    image,
+    title,
+    views,
+    timestamp,
+    channel,
+    gif,
+    avatar_img,
+  } = videoInfo;
   return (
-    <div className="video-card">
-      <img className="video-card__thumbnail" src={image} alt={title} />
+    <div className="video-card pointer-cursor">
+      <img className="video-card__thumbnail static" src={image} alt={title} />
+      <img className="video-card__thumbnail active" src={gif} alt={title} />
       <div className="video-card__info">
-        <Avatar alt={title} src={image} />
+        <Avatar alt={title} src={avatar_img} className="avatar" />
         <div className="video-card__text">
           <h4>{title}</h4>
           <p>{channel}</p>
           <p>
-            {views}•{timestamp}
+            {views} • {timestamp}
           </p>
         </div>
+        <span className="video-card__option dropdown">
+          <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+          <div class="dropdown-content">
+            <a href="#">Save to Watch Later</a>
+            <a href="#">Save to playlist</a>
+            <a href="#">Share</a>
+            <a href="#">Save to liked one</a>
+          </div>
+        </span>
       </div>
     </div>
   );
