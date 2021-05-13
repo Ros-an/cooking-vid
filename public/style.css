@@ -10,6 +10,7 @@
 
 :root {
   --vid-primary: rgb(76, 76, 228);
+  --vid-primary-op1: rgba(76, 76, 228, 0.1);
   --vid-textColor: rgba(0, 0, 0, 0.9);
   --vid-opacity: rgba(76, 76, 228, 0.2);
   --vid-opacity5: rgba(76, 76, 228, 0.4);
@@ -17,7 +18,10 @@
 }
 
 body {
-  background: var(--third);
+  background: var(--vid-primary-op1);
   font-family: "Roboto", sans-serif;
   /* color: rgba(0, 0, 0, 0.808); */
+}
+main {
+  min-height: 100vh;
 }
