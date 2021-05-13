@@ -10,7 +10,7 @@ function RecommendedVid() {
       <h2>Recommended</h2>
       <div className="recommended-vid__videos">
         {videoData.map((item) => (
-          <VideoCard videoInfo={item} />
+          <VideoCard videoInfo={item} key={item.id} />
         ))}
       </div>
     </div>

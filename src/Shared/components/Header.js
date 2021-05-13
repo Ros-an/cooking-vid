@@ -26,7 +26,7 @@ function Header() {
       <NavLink to="/authenticate">
         <p className="login">
           {" "}
-          <span className="login-item__text">Login/SignUp</span>
+          <span className="login-item__text">Login</span>
           <span className="login-item__logo">
             <AccountCircleRoundedIcon style={{ fontSize: "1.75rem" }} />
           </span>

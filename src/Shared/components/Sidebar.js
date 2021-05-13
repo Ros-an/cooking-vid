@@ -25,7 +25,7 @@ function Sidebar() {
         {sidebarTitle.map((sideItem) => {
           const { Icon, title } = sideItem;
           return (
-            <div className="sidebar__item">
+            <div className="sidebar__item" key={sideItem.id}>
               {<Icon />}
               <p>{title}</p>
             </div>
