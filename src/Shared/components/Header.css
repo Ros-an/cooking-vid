@@ -12,6 +12,10 @@
   background: white;
   z-index: 100;
 }
+.header a {
+  text-decoration: none;
+  color: var(--vid-primary);
+}
 .header .header__logo {
   border: 0;
   background: transparent;
