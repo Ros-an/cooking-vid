@@ -26,7 +26,7 @@ export const videoData = [
       "https://yt3.ggpht.com/ytc/AAUvwnirmSwZVHeWSQefT2VZoKrxsUdhwFyh1lskwMlt=s68-c-k-c0x00ffffff-no-rj",
     image:
       "https://i.ytimg.com/vi/QHwTdOWARB0/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB5K66AYRfvmG4pafY_U6O-ogJX2w",
-    gif: "https://i.ytimg.com/an_webp/QHwTdOWARB0/mqdefault_6s.webp?du=3000&sqp=CPfA3YQG&rs=AOn4CLDy_AVFv4GmiZvSgV1VQdmQrCLN4g",
+    gif: "https://j.gifs.com/mqZ7MA.gif",
 
     video: "https://youtube.video.link",
   },
@@ -41,7 +41,7 @@ export const videoData = [
       "https://yt3.ggpht.com/ytc/AAUvwnhF8JNVw8RjLzNB7cdIdm1qUKqLqt9OsMgP76K_JA=s68-c-k-c0x00ffffff-no-rj",
     image:
       "https://i.ytimg.com/vi/kpQC2DNX9K4/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCYFhHTCe7Vfy6bTLmSMDXSEDBxyw",
-    gif: "https://i.ytimg.com/an_webp/kpQC2DNX9K4/mqdefault_6s.webp?du=3000&sqp=CPCj3YQG&rs=AOn4CLCvjmi-Pju7N-6Jcb1RXrig5XuF4g",
+    gif: "https://j.gifs.com/Rl68w0.gif",
 
     video: "https://youtube.video.link",
   },
