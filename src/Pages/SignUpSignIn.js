@@ -8,7 +8,7 @@ function SignUpSignIn() {
     setClass((prev) => !prev);
   }
   return (
-    <section>
+    <section className="authenticate">
       <div className={addClass ? "container" : "container active"}>
         <div className="user signinBx">
           <div className="imgBx">

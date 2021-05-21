@@ -1,4 +1,4 @@
-section {
+.authenticate {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -15,10 +15,9 @@ section .container {
   background: #fff;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  /* border-radius: 0.5rem; */
 }
 
-section .container .user {
+.authenticate .container .user {
   position: absolute;
   top: 0;
   left: 0;
@@ -27,14 +26,18 @@ section .container .user {
   display: flex;
 }
 
-section .container .user .imgBx {
+.authenticate .container .user .imgBx {
   position: relative;
   width: 50%;
   height: 100%;
-  background: var(--vid-primary-op1);
   transition: 0.5s;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--vid-primary),
+    var(--vid-primary-op1)
+  );
 }
-section .container .user .imgBx div {
+.authenticate .container .user .imgBx div {
   position: absolute;
   top: 0;
   left: 0;
@@ -48,17 +51,17 @@ section .container .user .imgBx div {
   text-align: center;
   padding: 0 2rem;
 }
-section .container .user .imgBx .heading {
+.authenticate .container .user .imgBx .heading {
   font-size: 2.25rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
 }
-section .container .user .imgBx .para {
+.authenticate .container .user .imgBx .para {
   font-size: 1.15rem;
   line-height: 1.5rem;
 }
 
-section .container .user .formBx {
+.authenticate .container .user .formBx {
   position: relative;
   width: 50%;
   height: 100%;
@@ -70,7 +73,7 @@ section .container .user .formBx {
   transition: 0.5s;
 }
 
-section .container .user .formBx form h2 {
+.authenticate .container .user .formBx form h2 {
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
@@ -80,7 +83,7 @@ section .container .user .formBx form h2 {
   margin-bottom: 10px;
 }
 
-section .container .user .formBx form input {
+.authenticate .container .user .formBx form input {
   position: relative;
   width: 100%;
   padding: 10px;
@@ -95,7 +98,7 @@ section .container .user .formBx form input {
   font-weight: 300;
 }
 
-section .container .user .formBx form input[type="submit"] {
+.authenticate .container .user .formBx form input[type="submit"] {
   max-width: 100px;
   background: var(--vid-primary);
   color: #fff;
@@ -106,7 +109,7 @@ section .container .user .formBx form input[type="submit"] {
   transition: 0.5s;
 }
 
-section .container .user .formBx form .signup {
+.authenticate .container .user .formBx form .signup {
   position: relative;
   margin-top: 20px;
   font-size: 12px;
@@ -116,62 +119,62 @@ section .container .user .formBx form .signup {
   font-weight: 300;
 }
 
-section .container .user .formBx form .signup a {
+.authenticate .container .user .formBx form .signup a {
   font-weight: 600;
   text-decoration: none;
   color: var(--vid-primary);
 }
 
-section .container .signupBx {
+.authenticate .container .signupBx {
   pointer-events: none;
 }
 
-section .container.active .signupBx {
+.authenticate .container.active .signupBx {
   pointer-events: initial;
 }
 
-section .container .signupBx .formBx {
+.authenticate .container .signupBx .formBx {
   left: 100%;
 }
 
-section .container.active .signupBx .formBx {
+.authenticate .container.active .signupBx .formBx {
   left: 0;
 }
 
-section .container .signupBx .imgBx {
+.authenticate .container .signupBx .imgBx {
   left: -100%;
 }
 
-section .container.active .signupBx .imgBx {
+.authenticate .container.active .signupBx .imgBx {
   left: 0%;
 }
 
-section .container .signinBx .formBx {
+.authenticate .container .signinBx .formBx {
   left: 0%;
 }
 
-section .container.active .signinBx .formBx {
+.authenticate .container.active .signinBx .formBx {
   left: 100%;
 }
 
-section .container .signinBx .imgBx {
+.authenticate .container .signinBx .imgBx {
   left: 0%;
 }
 
-section .container.active .signinBx .imgBx {
+.authenticate .container.active .signinBx .imgBx {
   left: -100%;
 }
 
 @media (max-width: 991px) {
-  section .container {
+  .authenticate .container {
     max-width: 400px;
   }
 
-  section .container .imgBx {
+  .authenticate .container .imgBx {
     display: none;
   }
 
-  section .container .user .formBx {
+  .authenticate .container .user .formBx {
     width: 100%;
   }
 }
