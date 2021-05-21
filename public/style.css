@@ -1,4 +1,4 @@
-@import url("https://uidesign-lib.netlify.app/main.css");
+/* @import url("https://uidesign-lib.netlify.app/main.css"); */
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500&display=swap");
 
@@ -15,6 +15,13 @@
   --vid-opacity: rgba(76, 76, 228, 0.2);
   --vid-opacity5: rgba(76, 76, 228, 0.4);
   --vid-border5: 1px solid var(--vid-opacity5);
+  /* //z-Index */
+  --z-index-one: 1;
+  --z-index-two: 2;
+  --z-index-three: 3;
+  --z-index-four: 4;
+  --z-index-five: 5;
+  --z-index-six: 6;
 }
 
 body {
@@ -25,4 +32,12 @@ body {
 main {
   /* min-height: 100vh; */
   margin: 0 0 0 20%;
+}
+.pointer-cursor {
+  cursor: pointer;
+}
+@media screen and (max-width: 780px) {
+  main {
+    margin: 0;
+  }
 }
