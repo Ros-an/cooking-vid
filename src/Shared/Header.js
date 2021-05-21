@@ -10,7 +10,7 @@ function Header() {
   return (
     <div className="header">
       <NavLink to="/">
-        <button className="header__logo">
+        <button className="header__logo pointer-cursor">
           <span className="logoText">
             C<span className="ooking">ooking</span> Vid
           </span>

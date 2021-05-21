@@ -4,11 +4,10 @@
   height: 92vh;
   left: 0;
   background: white;
-  padding-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 100;
+  z-index: var(--z-index-five);
 }
 .sidebar .sidebar__item {
   padding: 1rem 1vw 1vw 4vw;
@@ -20,9 +19,18 @@
 .sidebar .sidebar__item p {
   margin-left: 1vw;
 }
-.sidebar .sidebar__item:hover {
-  background: var(--vid-opacity);
+
+.sidebar a {
+  text-decoration: none;
+  border: 3px outset transparent;
 }
+.sidebar a:hover,
+.sidebar a:active,
+.sidebar a.active {
+  background: var(--vid-primary-op1);
+  border-right: 3px outset var(--vid-primary);
+}
+
 .socialmedia {
   display: flex;
   justify-content: space-around;
@@ -60,6 +68,12 @@
     justify-content: space-between;
     align-items: center;
     align-content: center;
+  }
+  .sidebar a:hover,
+  .sidebar a:active,
+  .sidebar a.active {
+    border-top: 3px outset var(--vid-primary);
+    border-right: 3px outset transparent;
   }
   .sidebar .sidebar__item p,
   .socialmedia {
