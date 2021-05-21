@@ -3,11 +3,10 @@ import { reducer } from "../Reducer/playlist-reducer";
 const PlayListContext = createContext();
 
 const defaultState = {
-  playListModalState: {
-    status: false,
-    videoData: "",
-  },
-  playListStore: [],
+  playListModalState: false,
+  playListInputBox: false,
+  singleVideo: "",
+  playListStorage: [],
 };
 
 export const PlayListProvider = ({ children }) => {
