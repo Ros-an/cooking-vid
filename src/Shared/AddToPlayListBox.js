@@ -1,27 +1,39 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { usePlayList } from "../ContextAPI/playlist-context";
 
 const customStyleInput = {
   outlineColor: "var(--vid-primary)",
 };
 function AddToPlayListBox() {
-  const inputRef = useRef(null);
+  const [playListName, setPlayListName] = useState("");
   const { dispatchPlayList } = usePlayList();
-
+  const inputRef = useRef(null);
   useEffect(() => {
-    console.log("roshan");
     inputRef.current.focus();
   }, []);
 
+  const playListNamingHandler = () => {
+    dispatchPlayList({
+      type: "SAVE_NEW_PLAYLIST",
+      payload: playListName,
+    });
+  };
   return (
     <div className="playlist-modal__input">
       <input
         ref={inputRef}
         type="text"
+        value={playListName}
         placeholder="ENTER NAME"
         style={customStyleInput}
+        onChange={(e) => setPlayListName(e.target.value)}
+        onKeyPress={(e) => e.key === "Enter" && playListNamingHandler()}
       />
-      <button onClick={() => dispatchPlayList({ type: "INPUT_BOX_STATE" })}>
+      <button
+        onClick={() => {
+          playListNamingHandler();
+        }}
+      >
         ADD{" "}
       </button>
     </div>
