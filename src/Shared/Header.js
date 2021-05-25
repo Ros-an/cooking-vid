@@ -2,14 +2,22 @@ import React from "react";
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircleRoundedIcon from "@material-ui/icons/AccountCircleRounded";
+import MenuIcon from "@material-ui/icons/Menu";
 import { NavLink } from "react-router-dom";
-
+import { useAuthContext } from "../ContextAPI/auth-context";
 import "./Header.css";
 
 function Header() {
+  const { authPage, slideOpen, slideClose } = useAuthContext();
   return (
     <div className="header">
-      <NavLink to="/">
+      <span
+        className="menu-icon pointer-cursor"
+        onClick={() => (authPage ? slideClose() : slideOpen())}
+      >
+        <MenuIcon />
+      </span>
+      <NavLink to="/" onClick={() => authPage && slideClose()}>
         <button className="header__logo pointer-cursor">
           <span className="logoText">
             C<span className="ooking">ooking</span> Vid
