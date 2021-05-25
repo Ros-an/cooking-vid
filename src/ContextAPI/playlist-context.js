@@ -8,7 +8,6 @@ const defaultState = {
   singleVideo: "",
   playListStorage: [],
 };
-
 export const PlayListProvider = ({ children }) => {
   const [state, dispatchPlayList] = useReducer(reducer, defaultState);
   return (
