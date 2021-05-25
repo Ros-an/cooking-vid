@@ -5,8 +5,6 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.009);
-  display: grid;
-  place-items: center;
   display: none;
 }
 /* OPEN/CLOSE MODAL */
@@ -38,6 +36,17 @@
   align-content: center;
   padding: 0.5rem;
 }
+.playlist-modal .add-to-playlist-icon {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding: 0.1rem;
+  color: var(--vid-primary);
+}
+.playlist-modal .add-to-playlist-icon span {
+  font-size: 0.9rem;
+}
+/* ------INPUT BOX------- */
 .playlist-modal .playlist-modal__input {
   justify-content: flex-start;
 }
@@ -64,19 +73,25 @@
   color: white;
   background: var(--vid-primary);
 }
-.playlist-modal .add-to-playlist-icon {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  color: var(--vid-primary);
-}
-
+/* --------LIST OF PLAYLIST--------- */
 .playlist-modal .playlist-modal__content .list {
-  padding: 0.5rem;
-  border: 1px solid black;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid gray;
   border-left: 0;
   border-right: 0;
 }
+.playlist-modal .playlist-modal__content .list div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.25rem 0;
+  margin: 0.25rem 0;
+}
+
+.playlist-modal .playlist-modal__content .list div label {
+  margin-left: 0.75rem;
+}
+/* ----- DONE BUTTON------- */
 .playlist-modal .playlist-modal__content .done-btn {
   padding: 0.5rem;
   display: flex;
@@ -93,4 +108,9 @@
 }
 .playlist-modal .playlist-modal__content .done-btn span {
   margin-left: 0.25rem;
+}
+@media screen and (max-width: 450px) {
+  .playlist-modal .playlist-modal__content {
+    width: 90%;
+  }
 }
