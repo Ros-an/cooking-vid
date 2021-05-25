@@ -5,14 +5,17 @@ import ViewListIcon from "@material-ui/icons/ViewList";
 import HistoryIcon from "@material-ui/icons/History";
 import WatchLaterIcon from "@material-ui/icons/WatchLater";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import { useAuthContext } from "../ContextAPI/auth-context";
 
 import "./Sidebar.css";
 
 function Sidebar() {
+  const { authPage } = useAuthContext();
   return (
-    <div className="sidebar">
+    <div
+      className="sidebar"
+      style={{ display: `${authPage ? "none" : "block"}` }}
+    >
       <div className="sidebar-firstchild">
         <NavLink to="/" end className="sidebar__item">
           <HomeIcon />
@@ -35,9 +38,12 @@ function Sidebar() {
           <p>Liked One</p>
         </NavLink>
       </div>
-      <div className="socialmedia">
-        <GitHubIcon className="socialmedia-icon" />
-        <LinkedInIcon className="socialmedia-icon" />
+      <div className="footer">
+        <p>Made in India</p>
+        <img
+          src="https://uidesign-lib.netlify.app/images/Flag_of_India.svg"
+          alt="Indian-flag"
+        />
       </div>
     </div>
   );
