@@ -12,9 +12,27 @@
   background: white;
   z-index: var(--z-index-five);
 }
+.header .menu-icon {
+  color: black;
+  margin: 0 0.5rem;
+  display: flex;
+  padding: 0.25rem 0.3rem;
+  transition: 0.3s;
+  border: 1px solid transparent;
+  align-items: center;
+  border-radius: 50%;
+}
+.header .menu-icon:hover {
+  background: var(--gray-hover);
+}
+.header .menu-icon:active {
+  border-color: gray;
+  transition: 0.1s;
+}
 .header a {
   text-decoration: none;
   color: var(--vid-primary);
+  cursor: pointer;
 }
 .header .header__logo {
   border: 0;
@@ -73,7 +91,9 @@
     padding: 0.25rem;
     height: 3.5rem;
   }
-
+  .header .menu-icon {
+    display: none;
+  }
   .header .header__logo span .ooking {
     display: none;
     transition: 1s;
