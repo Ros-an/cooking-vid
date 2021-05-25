@@ -5,7 +5,9 @@
   flex: 1 1 0;
   position: relative;
 }
-
+.video-card a {
+  text-decoration: none;
+}
 .video-card__thumbnail {
   height: 9rem;
   width: 15.5rem;
@@ -40,7 +42,7 @@
   border: 1px solid transparent;
 }
 .video-card .video-card__option:hover {
-  background: rgba(128, 128, 128, 0.234);
+  background: var(--gray-hover);
   border: 1px solid gray;
 }
 .video-card__text > h4 {
