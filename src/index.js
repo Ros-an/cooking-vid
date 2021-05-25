@@ -5,12 +5,18 @@ import App from "./App";
 
 // CONTEXT
 import { PlayListProvider } from "./ContextAPI/playlist-context";
+import { AuthProvider } from "./ContextAPI/auth-context";
+import { WatchLaterProvider } from "./ContextAPI/watchlater-context";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <PlayListProvider>
-        <App />
+        <WatchLaterProvider>
+          <AuthProvider>
+            <App />
+          </AuthProvider>
+        </WatchLaterProvider>
       </PlayListProvider>
     </Router>
   </React.StrictMode>,
