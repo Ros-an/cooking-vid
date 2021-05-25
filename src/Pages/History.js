@@ -1,7 +1,12 @@
 import React from "react";
+import { SectionHeading } from "../Shared/MiniComponent";
 
 function History() {
-  return <div>this is history page</div>;
+  return (
+    <div className="section-padding">
+      <SectionHeading headingName={"History"} />
+    </div>
+  );
 }
 
 export default History;

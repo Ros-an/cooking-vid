@@ -1,7 +1,11 @@
 import React from "react";
-
+import { SectionHeading } from "../Shared/MiniComponent";
 function LikedOne() {
-  return <div>This page is for liked video</div>;
+  return (
+    <div className="section-padding">
+      <SectionHeading headingName={"Liked Videos"} />
+    </div>
+  );
 }
 
 export default LikedOne;
