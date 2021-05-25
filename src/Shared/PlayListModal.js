@@ -3,12 +3,12 @@ import AddIcon from "@material-ui/icons/Add";
 import DoneIcon from "@material-ui/icons/Done";
 import { usePlayList } from "../ContextAPI/playlist-context";
 import AddToPlayListBox from "./AddToPlayListBox";
+import ListOfPlayListInModal from "./ListOfPlayListInModal";
 import "./PlayListModal.css";
 
 function PlayListModal() {
   const { playListModalState, playListInputBox, dispatchPlayList } =
     usePlayList();
-
   return (
     <div
       className={`${
@@ -32,8 +32,9 @@ function PlayListModal() {
             </div>
           )}
           {playListInputBox && <AddToPlayListBox />}
-
-          <div className="list">Here will be the list</div>
+          <div className="list">
+            <ListOfPlayListInModal />
+          </div>
           <div
             className="done-btn pointer-cursor"
             onClick={() => dispatchPlayList({ type: "MODAL_CONTROL" })}
