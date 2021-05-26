@@ -23,11 +23,11 @@ function Sidebar() {
         </NavLink>
         <NavLink to="/playlist" className="sidebar__item">
           <ViewListIcon />
-          <p>PlayList</p>
+          <p>Playlist</p>
         </NavLink>
         <NavLink to="/watchlater" className="sidebar__item">
           <WatchLaterIcon />
-          <p>Watch Later</p>
+          <p>Watch later</p>
         </NavLink>
         <NavLink to="/history" className="sidebar__item">
           <HistoryIcon />
