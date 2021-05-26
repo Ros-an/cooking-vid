@@ -1,10 +1,10 @@
 import React from "react";
 import { usePlayList } from "../../ContextAPI/playlist-context";
-import { useWatchLater } from "../../ContextAPI/watchlater-context";
+import { useLikeHistoryWatchLater } from "../../ContextAPI/likeHistoryWatchLater-context";
 
 function DropDownList({ videoInfo }) {
   const { dispatchPlayList } = usePlayList();
-  const { dispatchWatchLater } = useWatchLater();
+  const { dispatchLikeHistoryWatchLater } = useLikeHistoryWatchLater();
   return (
     <span className="video-card__option dropdown pointer-cursor">
       <i className="fa fa-ellipsis-v" aria-hidden="true"></i>
@@ -18,7 +18,7 @@ function DropDownList({ videoInfo }) {
         </p>
         <p
           onClick={() =>
-            dispatchWatchLater({
+            dispatchLikeHistoryWatchLater({
               type: "ADD_TO_WATCHLATER",
               payload: videoInfo,
             })
@@ -26,7 +26,6 @@ function DropDownList({ videoInfo }) {
         >
           Save to watch Later
         </p>
-        <p>Save to liked one</p>
       </div>
     </span>
   );

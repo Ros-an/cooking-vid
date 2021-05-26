@@ -27,7 +27,7 @@ export const videoData = [
       "https://i.ytimg.com/vi/QHwTdOWARB0/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB5K66AYRfvmG4pafY_U6O-ogJX2w",
     gif: "https://j.gifs.com/mqZ7MA.gif",
 
-    videoLink: "/BYy5Cw1_HNg",
+    videoLink: "/2Fp5kmeZlk4",
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ export const videoData = [
       "https://i.ytimg.com/vi/kpQC2DNX9K4/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCYFhHTCe7Vfy6bTLmSMDXSEDBxyw",
     gif: "https://j.gifs.com/Rl68w0.gif",
 
-    videoLink: "/8XF57Ds5jxI",
+    videoLink: "/kpQC2DNX9K4",
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ export const videoData = [
       "https://i.ytimg.com/vi/FjmiJ7GHUy4/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCAZVIB3eNmKJmX23t2diq7-oQXmA",
     gif: "https://i.ytimg.com/an_webp/FjmiJ7GHUy4/mqdefault_6s.webp?du=3000&sqp=CNjD3YQG&rs=AOn4CLD1-cM8CBi-ujkn5n0qPJvd2wGeLw",
 
-    videoLink: "/9mAEEHVFK1Q",
+    videoLink: "/FjmiJ7GHUy4",
   },
   {
     id: 5,
