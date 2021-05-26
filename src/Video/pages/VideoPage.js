@@ -4,15 +4,24 @@ import { videoData } from "../data";
 import Avatar from "@material-ui/core/Avatar";
 import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
+import { useLikeHistoryWatchLater } from "../../ContextAPI/likeHistoryWatchLater-context";
 import "./VideoPage.css";
 
 function VideoPage() {
   const [video, setVideo] = useState(undefined);
+  const { dispatchLikeHistoryWatchLater } = useLikeHistoryWatchLater();
+
   const { videoid } = useParams();
+
   useEffect(() => {
     const reqVideo = videoData.find((vid) => vid.id === Number(videoid));
     setVideo(reqVideo);
-  }, [videoid]);
+    dispatchLikeHistoryWatchLater({
+      type: "ADD_TO_HISTORY",
+      payload: reqVideo,
+    });
+  }, [videoid, dispatchLikeHistoryWatchLater, video]);
+
   return (
     <div className="section-padding video-page">
       {video && (
@@ -20,7 +29,7 @@ function VideoPage() {
           <iframe
             width="100%"
             height="420"
-            src={`https://www.youtube.com/embed/${video.videoLink}`}
+            src={`https://www.youtube.com/embed${video.videoLink}`}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
