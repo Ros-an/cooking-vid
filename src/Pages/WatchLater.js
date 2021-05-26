@@ -4,10 +4,10 @@ import {
   SectionHeading,
   NoItem,
 } from "../Shared/MiniComponent";
-import { useWatchLater } from "../ContextAPI/watchlater-context";
+import { useLikeHistoryWatchLater } from "../ContextAPI/likeHistoryWatchLater-context";
 
 function WatchLater() {
-  const { watchLater } = useWatchLater();
+  const { watchLater } = useLikeHistoryWatchLater();
   return (
     <div className="section-padding">
       <SectionHeading headingName={"Watch Later"} />
