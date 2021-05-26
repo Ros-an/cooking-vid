@@ -6,17 +6,17 @@ import App from "./App";
 // CONTEXT
 import { PlayListProvider } from "./ContextAPI/playlist-context";
 import { AuthProvider } from "./ContextAPI/auth-context";
-import { WatchLaterProvider } from "./ContextAPI/watchlater-context";
+import { LikeHistoryWatchLaterProvider } from "./ContextAPI/likeHistoryWatchLater-context";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <PlayListProvider>
-        <WatchLaterProvider>
+        <LikeHistoryWatchLaterProvider>
           <AuthProvider>
             <App />
           </AuthProvider>
-        </WatchLaterProvider>
+        </LikeHistoryWatchLaterProvider>
       </PlayListProvider>
     </Router>
   </React.StrictMode>,
