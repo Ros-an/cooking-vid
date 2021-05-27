@@ -43,3 +43,6 @@
 .video-page .video-channel-and-control .control .icon {
   font-size: 2rem;
 }
+.video-page .video-channel-and-control .control .liked {
+  color: var(--vid-primary);
+}

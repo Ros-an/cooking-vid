@@ -6,6 +6,7 @@ const LikeHistoryWatchLaterContext = createContext();
 const defaultState = {
   watchLater: [],
   history: [],
+  likedOne: [],
 };
 
 export const LikeHistoryWatchLaterProvider = ({ children }) => {

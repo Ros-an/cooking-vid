@@ -38,7 +38,7 @@ function ListOfPlayListInModal() {
       });
     }
     dispatchPlayList({
-      type: "ADD_REMOVE_VIDEO_OF_PLAYLIST",
+      type: "TOGGLING_VID_CHECKBOX",
       payload: updatedPlaylistStorage,
     });
   };

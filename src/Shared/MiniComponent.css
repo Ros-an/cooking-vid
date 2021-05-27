@@ -47,14 +47,19 @@
   font-size: 0.95rem;
   margin-bottom: 0.1rem;
 }
-.playlist-video-card .details a {
+.playlist-video-card .details span {
   position: absolute;
   right: 1rem;
   bottom: 0;
   color: var(--vid-primary);
   text-decoration: none;
+  padding: 0.15rem 0.25rem;
 }
-
+.playlist-video-card .details span:active {
+  background: var(--vid-primary);
+  color: white;
+  border-radius: 0.25rem;
+}
 /* -------small screen--------- */
 @media screen and (max-width: 780px) {
   .playlist-video-card .details h3 {

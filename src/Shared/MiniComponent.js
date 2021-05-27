@@ -1,6 +1,5 @@
 import React from "react";
 import "./MiniComponent.css";
-import { Link } from "react-router-dom";
 
 function NoItem({ heading, buttonText }) {
   return (
@@ -14,7 +13,18 @@ function SectionHeading({ headingName }) {
   return <h2 className="section-heading">{headingName}</h2>;
 }
 
-function VideoCardTypeList({ image, title, views, timestamp, channel }) {
+function VideoCardTypeList({
+  id,
+  image,
+  title,
+  views,
+  timestamp,
+  channel,
+  dispatch,
+  remove,
+  playListId,
+}) {
+  console.log(remove);
   return (
     <article className="playlist-video-card">
       <img src={image} alt={title} />
@@ -23,7 +33,17 @@ function VideoCardTypeList({ image, title, views, timestamp, channel }) {
         <p>Channel : {channel}</p>
         <p>{views}</p>
         <p>{timestamp}</p>
-        <Link to="#">remove</Link>
+        <span
+          className="pointer-cursor"
+          onClick={() =>
+            dispatch({
+              type: remove,
+              payload: { id, playListId },
+            })
+          }
+        >
+          remove
+        </span>
       </div>
     </article>
   );

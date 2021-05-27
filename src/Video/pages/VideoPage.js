@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { videoData } from "../data";
 import Avatar from "@material-ui/core/Avatar";
 import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
+import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import { useLikeHistoryWatchLater } from "../../ContextAPI/likeHistoryWatchLater-context";
+
 import "./VideoPage.css";
+import { useParams } from "react-router-dom";
+import { videoData } from "../data";
 
 function VideoPage() {
   const [video, setVideo] = useState(undefined);
-  const { dispatchLikeHistoryWatchLater } = useLikeHistoryWatchLater();
+  const { likedOne, dispatchLikeHistoryWatchLater } =
+    useLikeHistoryWatchLater();
+  let likedOrNot;
 
   const { videoid } = useParams();
 
@@ -21,6 +25,9 @@ function VideoPage() {
       payload: reqVideo,
     });
   }, [videoid, dispatchLikeHistoryWatchLater, video]);
+  if (video) {
+    likedOrNot = likedOne.some((vid) => vid.id === video.id);
+  }
 
   return (
     <div className="section-padding video-page">
@@ -52,11 +59,23 @@ function VideoPage() {
               <p>{video.channel}</p>
             </div>
             <div className="control">
-              <div>
-                <ThumbUpAltOutlinedIcon className="icon" />
+              <div
+                className="pointer-cursor"
+                onClick={() =>
+                  dispatchLikeHistoryWatchLater({
+                    type: "TOGGLE_LIKE",
+                    payload: video,
+                  })
+                }
+              >
+                {video && likedOrNot ? (
+                  <ThumbUpIcon className="icon liked" />
+                ) : (
+                  <ThumbUpAltOutlinedIcon className="icon" />
+                )}
                 <span>Like</span>
               </div>
-              <div>
+              <div className="pointer-cursor">
                 <PlaylistAddIcon className="icon" />
                 <span>Save</span>
               </div>
