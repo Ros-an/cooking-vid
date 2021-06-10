@@ -4,7 +4,7 @@ const PlayListContext = createContext();
 
 const defaultState = {
   playListModalState: false,
-  playListInputBox: false,
+  // playListInputBox: false,
   singleVideo: "",
   playListStorage: [],
 };

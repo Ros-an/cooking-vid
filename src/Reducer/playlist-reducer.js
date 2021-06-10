@@ -7,15 +7,15 @@ export const reducer = (state, action) => {
         singleVideo: state.singleVideo === "" ? action.payload : "",
         playListModalState: state.playListModalState ? false : true,
       };
-    case "INPUT_BOX_STATE":
-      return {
-        ...state,
-        playListInputBox: state.playListInputBox ? false : true,
-      };
+    // case "INPUT_BOX_STATE":
+    //   return {
+    //     ...state,
+    //     playListInputBox: state.playListInputBox ? false : true,
+    //   };
+    // playListInputBox: state.playListInputBox ? false : true,
     case "SAVE_NEW_PLAYLIST":
       return {
         ...state,
-        playListInputBox: state.playListInputBox ? false : true,
         playListStorage: [
           ...state.playListStorage,
           {
