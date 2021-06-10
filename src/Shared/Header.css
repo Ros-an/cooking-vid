@@ -16,17 +16,26 @@
   color: black;
   margin: 0 0.5rem;
   display: flex;
-  padding: 0.25rem 0.3rem;
+  cursor: pointer;
+  padding: 0.2rem 0.2rem;
   transition: 0.3s;
   border: 1px solid transparent;
   align-items: center;
   border-radius: 50%;
 }
+.header .rotate-clock {
+  transform: rotate(90deg);
+  transition: all 0.3s linear;
+}
+.header .rotate-anitclock {
+  transform: rotate(-90deg);
+  transition: all 0.3s linear;
+}
 .header .menu-icon:hover {
   background: var(--gray-hover);
 }
 .header .menu-icon:active {
-  border-color: gray;
+  border-color: rgba(0, 0, 0, 0.3);
   transition: 0.1s;
 }
 .header a {

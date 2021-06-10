@@ -12,7 +12,9 @@ function Header() {
   return (
     <div className="header">
       <span
-        className="menu-icon pointer-cursor"
+        className={`menu-icon ${
+          authPage ? "rotate-clock" : "rotate-anticlock"
+        }`}
         onClick={() => (authPage ? slideClose() : slideOpen())}
       >
         <MenuIcon />
