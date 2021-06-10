@@ -1,6 +1,7 @@
 .recommended-vid__videos {
   display: flex;
   flex-wrap: wrap;
+  transition: all 0.3s linear;
   justify-content: center;
 }
 /* -------small screen------ */
