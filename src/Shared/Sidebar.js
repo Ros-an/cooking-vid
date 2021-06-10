@@ -12,10 +12,7 @@ import "./Sidebar.css";
 function Sidebar() {
   const { authPage } = useAuthContext();
   return (
-    <div
-      className="sidebar"
-      style={{ display: `${authPage ? "none" : "block"}` }}
-    >
+    <div className={`sidebar ${authPage ? "slide-in" : "slide-out"}`}>
       <div className="sidebar-firstchild">
         <NavLink to="/" end className="sidebar__item">
           <HomeIcon />
