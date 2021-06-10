@@ -41,9 +41,11 @@ body {
 }
 .main-content {
   margin: 0 0 0 20%;
+  transition: all 0.3s linear;
 }
 .main-content-slide-off {
   margin: 0;
+  transition: all 0.1s linear;
 }
 .pointer-cursor {
   cursor: pointer;
