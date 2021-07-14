@@ -4,9 +4,3 @@
   transition: all 0.3s linear;
   justify-content: center;
 }
-/* -------small screen------ */
-/* @media screen and (max-width: 780px) {
-  .recommended-vid {
-    margin: 0;
-  }
-} */
