@@ -1,36 +1,58 @@
 import React from "react";
-
-import Header from "./Shared/Header";
-import Sidebar from "./Shared/Sidebar";
-import RecommendedVid from "./Video/pages/RecommendedVid";
-import SignUpSignIn from "./Pages/SignUpSignIn";
-import PlayList from "./Pages/PlayList";
-import WatchLater from "./Pages/WatchLater";
-import History from "./Pages/History";
-import LikedOne from "./Pages/LikedOne";
-import PlayListVideoList from "./Pages/PlayListVideoList";
-import { useAuthContext } from "./ContextAPI/auth-context";
-import VideoPage from "./Video/pages/VideoPage";
+import Header from "./shared/Header";
+import Sidebar from "./shared/Sidebar";
+import RecommendedVid from "./video/pages/RecommendedVid";
+import Authenticate from "./pages/Authenticate";
+import PlayList from "./pages/PlayList";
+import WatchLater from "./pages/WatchLater";
+import History from "./pages/History";
+import LikedOne from "./pages/LikedOne";
+import VideoPage from "./video/pages/VideoPage";
+import PrivateRoute from "./private/PrivateRoute";
+import PlayListVideoList from "./pages/PlayListVideoList";
+import { useAuthContext } from "./context/auth-context";
+import { useVideoContext } from "./context/videoContext";
 import { Routes, Route } from "react-router-dom";
-
+import { Loader } from "./shared/loader/Loader";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import PlayListModal from "./shared/PlayListModal";
+import "./style.css";
 function App() {
   const { authPage } = useAuthContext();
+  const { loader } = useVideoContext();
+  if (loader) {
+    return (
+      <>
+        <Loader
+          spinner={false}
+          size={{ height: "2.5rem", width: "2.5rem" }}
+          select={true}
+        />
+      </>
+    );
+  }
   return (
     <div className="App">
       <Header />
       <Sidebar />
+      <PlayListModal />
       <main className={`main-content ${authPage && "main-content-slide-off"}`}>
         <Routes>
           <Route path="/" element={<RecommendedVid />} />
           <Route path="/:videoid" element={<VideoPage />} />
-          <Route path="/playlist" element={<PlayList />} />
-          <Route path="/watchlater" element={<WatchLater />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/likedone" element={<LikedOne />} />
-          <Route path="/playlist/:name/:id" element={<PlayListVideoList />} />
-          <Route path="/authenticate" element={<SignUpSignIn />} />
+          <PrivateRoute path="/playlist" element={<PlayList />} />
+          <PrivateRoute path="/watchlater" element={<WatchLater />} />
+          <PrivateRoute path="/history" element={<History />} />
+          <PrivateRoute path="/likedone" element={<LikedOne />} />
+          <PrivateRoute
+            path="/playlist/:name/:id"
+            element={<PlayListVideoList />}
+          />
+          <Route path="/authenticate" element={<Authenticate />} />
         </Routes>
       </main>
+      <ToastContainer autoClose={3000} position="bottom-right" />
     </div>
   );
 }
