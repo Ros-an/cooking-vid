@@ -5,7 +5,7 @@ import ViewListIcon from "@material-ui/icons/ViewList";
 import HistoryIcon from "@material-ui/icons/History";
 import WatchLaterIcon from "@material-ui/icons/WatchLater";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
-import { useAuthContext } from "../ContextAPI/auth-context";
+import { useAuthContext } from "../context/auth-context";
 
 import "./Sidebar.css";
 
@@ -35,7 +35,7 @@ function Sidebar() {
           <p>Liked One</p>
         </NavLink>
       </div>
-      <div className="footer">
+      <div className="footer" style={{ background: "white" }}>
         <p>Made in India</p>
         <img
           src="https://uidesign-lib.netlify.app/images/Flag_of_India.svg"
