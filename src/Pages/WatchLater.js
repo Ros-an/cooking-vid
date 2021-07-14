@@ -3,8 +3,8 @@ import {
   VideoCardTypeList,
   SectionHeading,
   NoItem,
-} from "../Shared/MiniComponent";
-import { useLikeHistoryWatchLater } from "../ContextAPI/likeHistoryWatchLater-context";
+} from "../shared/MiniComponent";
+import { useLikeHistoryWatchLater } from "../context/likeHistoryWatchLater-context";
 
 function WatchLater() {
   const { watchLater, dispatchLikeHistoryWatchLater } =
@@ -13,14 +13,14 @@ function WatchLater() {
   return (
     <div className="section-padding">
       <SectionHeading headingName={"Watch Later"} />
-      {!watchLater.length && (
+      {!watchLater?.length && (
         <NoItem heading={"No video to watch later"} buttonText={"Add Some"} />
       )}
       {watchLater && (
         <div className="video-list-container">
           {watchLater.map((vid) => (
             <VideoCardTypeList
-              key={vid.id}
+              key={vid._id}
               {...vid}
               dispatch={dispatchLikeHistoryWatchLater}
               remove={remove}

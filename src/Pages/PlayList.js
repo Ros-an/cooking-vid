@@ -1,7 +1,7 @@
 import React from "react";
-import { usePlayList } from "../ContextAPI/playlist-context";
-import SinglePlayList from "../Shared/SinglePlayList";
-import { SectionHeading, NoItem } from "../Shared/MiniComponent";
+import { usePlayList } from "../context/playlist-context";
+import SinglePlayList from "../shared/SinglePlayList";
+import { SectionHeading, NoItem } from "../shared/MiniComponent";
 
 import "./PlayList.css";
 function PlayList() {
@@ -14,7 +14,7 @@ function PlayList() {
       )}
       <div className="display-playlist">
         {playListStorage.map((singleList) => (
-          <SinglePlayList key={singleList.id} data={singleList} />
+          <SinglePlayList key={singleList._id} data={singleList} />
         ))}
       </div>
     </div>
