@@ -4,20 +4,26 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 
 // CONTEXT
-import { PlayListProvider } from "./ContextAPI/playlist-context";
-import { AuthProvider } from "./ContextAPI/auth-context";
-import { LikeHistoryWatchLaterProvider } from "./ContextAPI/likeHistoryWatchLater-context";
+import { PlayListProvider } from "./context/playlist-context";
+import { AuthProvider } from "./context/auth-context";
+import { LikeHistoryWatchLaterProvider } from "./context/likeHistoryWatchLater-context";
+import { VideoProvider } from "./context/videoContext";
+import { FilterProvider } from "./context/filterContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <PlayListProvider>
-        <LikeHistoryWatchLaterProvider>
-          <AuthProvider>
-            <App />
-          </AuthProvider>
-        </LikeHistoryWatchLaterProvider>
-      </PlayListProvider>
+      <VideoProvider>
+        <FilterProvider>
+          <PlayListProvider>
+            <LikeHistoryWatchLaterProvider>
+              <AuthProvider>
+                <App />
+              </AuthProvider>
+            </LikeHistoryWatchLaterProvider>
+          </PlayListProvider>
+        </FilterProvider>
+      </VideoProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
