@@ -9,7 +9,6 @@
   color: var(--vid-primary);
   position: sticky;
   top: 0;
-  background: white;
   z-index: var(--z-index-five);
 }
 .header .menu-icon {
@@ -57,38 +56,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
+
 .search-section input {
   width: 50%;
   font-family: inherit;
   border: 1px solid var(--vid-opacity5);
-  box-shadow: inset 0 0 1px 0.5px var(--vid-opacity5);
   height: 2rem;
   font-size: 1rem;
   padding: 0 0.5rem;
   font-weight: 400;
-  border-right: none;
-  border-radius: 2px 0 0 2px;
+  border-radius: 0.25rem;
+  outline-color: var(--vid-opacity5);
 }
-.search-section button {
-  width: 4rem;
-  height: 2rem;
-  color: var(--vid-primary);
-  border: 1px solid var(--vid-opacity5);
-  border-radius: 0 2px 2px 0;
-}
-.search-section .search-icon {
-  font-size: 1.25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .header .login {
   font-size: 1.25rem;
 }
-.header .login .login-item__logo {
-  display: none;
-}
+
 .header .header__logo .logoText,
 .search-section input,
 .header .login {
@@ -111,7 +97,7 @@
     padding: 0;
   }
   .search-section input {
-    width: 60%;
+    width: 70%;
   }
   .search-section button {
     padding: 0;
@@ -121,14 +107,9 @@
   .header .login {
     font-size: 1rem;
   }
-  .header .login .login-item__text {
-    display: none;
-  }
-  .header .login .login-item__logo {
-    display: block;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+}
+@media screen and (max-width: 480px) {
+  .search-section input {
+    width: 80%;
   }
 }
