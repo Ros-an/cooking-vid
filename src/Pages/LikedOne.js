@@ -3,24 +3,24 @@ import {
   VideoCardTypeList,
   SectionHeading,
   NoItem,
-} from "../Shared/MiniComponent";
-import { useLikeHistoryWatchLater } from "../ContextAPI/likeHistoryWatchLater-context";
+} from "../shared/MiniComponent";
+import { useLikeHistoryWatchLater } from "../context/likeHistoryWatchLater-context";
 
 function LikedOne() {
-  const { likedOne, dispatchLikeHistoryWatchLater } =
+  const { likedVideo, dispatchLikeHistoryWatchLater } =
     useLikeHistoryWatchLater();
   const remove = "REMOVE_FROM_LIKEDVID";
   return (
     <div className="section-padding">
       <SectionHeading headingName={"Liked Videos"} />
-      {!likedOne.length && (
+      {!likedVideo.length && (
         <NoItem heading={"No video liked yet"} buttonText={"Like some"} />
       )}
-      {likedOne && (
+      {likedVideo && (
         <div className="video-list-container">
-          {likedOne.map((vid) => (
+          {likedVideo.map((vid) => (
             <VideoCardTypeList
-              key={vid.id}
+              key={vid._id}
               {...vid}
               dispatch={dispatchLikeHistoryWatchLater}
               remove={remove}
