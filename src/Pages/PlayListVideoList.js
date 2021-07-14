@@ -1,42 +1,54 @@
 import React, { useEffect, useState } from "react";
-import { usePlayList } from "../ContextAPI/playlist-context";
-import "./PlayListVideoList.css";
+import { usePlayList } from "../context/playlist-context";
 import { useParams } from "react-router-dom";
+import { Loader } from "../shared/loader/Loader";
+import "./PlayListVideoList.css";
 import {
   NoItem,
   SectionHeading,
   VideoCardTypeList,
-} from "../Shared/MiniComponent";
+} from "../shared/MiniComponent";
 
 function PlayListVideoList() {
-  const [list, setList] = useState([]);
+  const [playlist, setPlaylist] = useState(null);
   const { playListStorage, dispatchPlayList } = usePlayList();
   const { id } = useParams();
   const remove = "REMOVE_VID_FROM_PLAYLIST";
 
   useEffect(() => {
-    const playList = playListStorage.find((list) => list.id === id);
-    setList(playList);
+    // const reqPlayList = playListStorage.filter((list) => list._id === id)[0];
+    const reqPlayList =  playListStorage.find((list) => list._id === id);
+    setPlaylist(reqPlayList);
   }, [id, playListStorage]);
 
   return (
     <section className="section-padding">
-      <SectionHeading headingName={`Play List / ${list.name}`} />
-      {list.videoList && (
-        <div className="video-list-container">
-          {list.videoList.map((vid) => (
-            <VideoCardTypeList
-              key={vid.id}
-              {...vid}
-              dispatch={dispatchPlayList}
-              remove={remove}
-              playListId={list.id}
-            />
-          ))}
-        </div>
-      )}
-      {list.videoList && list.videoList.length === 0 && (
-        <NoItem heading={"No Video Added"} buttonText={"Add Some"} />
+      {!playlist ? (
+        <Loader
+          spinner={false}
+          size={{ height: "1.5rem", width: "1.5rem" }}
+          select={false}
+        />
+      ) : (
+        <>
+          <SectionHeading headingName={`Play List / ${playlist?.name}`} />
+          {playlist?.list && (
+            <div className="video-list-container">
+              {playlist?.list?.map((vid) => (
+                <VideoCardTypeList
+                  key={vid._id}
+                  {...vid}
+                  dispatch={dispatchPlayList}
+                  remove={remove}
+                  playListId={playlist._id}
+                />
+              ))}
+            </div>
+          )}
+          {playlist.list && playlist.list.length === 0 && (
+            <NoItem heading={"No Video Added"} buttonText={"Add Some"} />
+          )}{" "}
+        </>
       )}
     </section>
   );
