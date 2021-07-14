@@ -2,18 +2,16 @@ import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import DropDownList from "./DropDownList";
 import { Link } from "react-router-dom";
-import PlayListModal from "../../Shared/PlayListModal";
 
 import "./VideoCard.css";
 
 function VideoCard({ videoInfo }) {
-  const { id, image, title, views, timestamp, channel, gif, avatar_img } =
+  const { _id, image, title, views, timestamp, channel, gif, avatar_img } =
     videoInfo;
   return (
     <>
-      <PlayListModal />
-      <div className="video-card" key={id}>
-        <Link to={`/${id}`}>
+      <div className="video-card">
+        <Link to={`/${_id}`}>
           <img
             className="video-card__thumbnail static"
             src={image}
