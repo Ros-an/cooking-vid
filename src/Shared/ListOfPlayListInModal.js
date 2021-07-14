@@ -1,63 +1,81 @@
-import React from "react";
-import { usePlayList } from "../ContextAPI/playlist-context";
+import React, { useState } from "react";
+import { usePlayList } from "../context/playlist-context";
+import { userInfo } from "../utils/authrelated";
+import { addVideo, removeVideo } from "../api/playlist_api";
+import { MiniLoader } from "./loader/Loader";
 
 function ListOfPlayListInModal() {
-  const { dispatchPlayList, playListStorage, singleVideo } = usePlayList();
+  const { playListStorage } = usePlayList();
 
   if (!playListStorage.length) {
     return "Playlist will be displayed here!";
   }
 
-  const checkHandler = (id) => {
-    const reqPlayList = playListStorage.filter((list) => list.id === id)[0];
-    const { videoList } = reqPlayList;
-    return videoList.some((video) => video.id === singleVideo.id);
-  };
-  const playListAccessHandler = (singleVideo, id) => {
-    const reqPlayList = playListStorage.find((list) => list.id === id);
-    const presentOrNot = reqPlayList.videoList.some(
-      (video) => video.id === singleVideo.id
-    );
-    let updatedPlaylistStorage;
-    //if vid not present, then add
-    if (!presentOrNot) {
-      updatedPlaylistStorage = playListStorage.map((list) =>
-        list.id === id
-          ? { ...reqPlayList, videoList: [...list.videoList, singleVideo] }
-          : list
-      );
-      //if present, then remove
-    } else {
-      const newVideoList = reqPlayList.videoList.filter(
-        (video) => video.id !== singleVideo.id
-      );
-      updatedPlaylistStorage = playListStorage.map((list) => {
-        return list.id === id
-          ? { ...reqPlayList, videoList: [...newVideoList] }
-          : list;
-      });
-    }
-    dispatchPlayList({
-      type: "TOGGLING_VID_CHECKBOX",
-      payload: updatedPlaylistStorage,
-    });
-  };
   return (
     <>
       {playListStorage.map((playList) => {
-        return (
-          <div key={playList.id}>
-            <input
-              type="checkbox"
-              checked={checkHandler(playList.id)}
-              onChange={() => playListAccessHandler(singleVideo, playList.id)}
-            />
-            <label htmlFor={playList.name}>{playList.name}</label>
-          </div>
-        );
+        return <ModalList key={playList._id} playList={playList} />;
       })}
     </>
   );
 }
+
+export const ModalList = ({ playList }) => {
+  const { dispatchPlayList, singleVideo } = usePlayList();
+  const [loader, setLoaderOne] = useState(false);
+
+  // to check whether video is present in the list
+  const handleCheck = () => {
+    return playList?.list?.some((video) => video._id === singleVideo._id);
+  };
+
+  const handlePlayListAccess = () => {
+    const presentOrNot = playList?.list?.some(
+      (video) => video._id === singleVideo._id
+    );
+
+    //if vid not present, then add
+    const userId = userInfo()?.user._id;
+    const playlistId = playList._id;
+    const videoId = singleVideo._id;
+    if (!presentOrNot) {
+      addVideo({
+        playlistId,
+        video: singleVideo,
+        userId,
+        dispatchPlayList,
+        setLoaderOne,
+      });
+    } else {
+      removeVideo({
+        playlistId,
+        videoId,
+        userId,
+        dispatchPlayList,
+        setLoaderOne,
+      });
+    }
+  };
+
+  return (
+    <div>
+      <div style={{ height: "1rem", width: "1rem" }}>
+        {loader ? (
+          <MiniLoader
+            spinner={false}
+            size={{ height: "0.75rem", width: "0.75rem" }}
+          />
+        ) : (
+          <input
+            type="checkbox"
+            checked={handleCheck()}
+            onChange={() => handlePlayListAccess(playList._id)}
+          />
+        )}
+      </div>
+      <label htmlFor={playList.name}>{playList.name}</label>
+    </div>
+  );
+};
 
 export default ListOfPlayListInModal;
