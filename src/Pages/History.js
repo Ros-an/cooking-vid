@@ -2,8 +2,8 @@ import {
   VideoCardTypeList,
   SectionHeading,
   NoItem,
-} from "../Shared/MiniComponent";
-import { useLikeHistoryWatchLater } from "../ContextAPI/likeHistoryWatchLater-context";
+} from "../shared/MiniComponent";
+import { useLikeHistoryWatchLater } from "../context/likeHistoryWatchLater-context";
 
 function History() {
   const { history, dispatchLikeHistoryWatchLater } = useLikeHistoryWatchLater();
@@ -18,7 +18,7 @@ function History() {
         <div className="video-list-container">
           {history.map((vid) => (
             <VideoCardTypeList
-              key={vid.id}
+              key={vid._id}
               {...vid}
               dispatch={dispatchLikeHistoryWatchLater}
               remove={remove}
