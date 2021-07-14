@@ -1,21 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import playlistImage from "../asset/online-live-video-marketing-concept_12892-37.jpg";
-import { Link } from "react-router-dom";
+import { removeListFromPlaylist } from "../api/playlist_api";
+import { usePlayList } from "../context/playlist-context";
+import { userInfo } from "../utils/authrelated";
+
+import { useNavigate } from "react-router-dom";
+import { MiniLoader } from "./loader/Loader";
 
 function SinglePlayList({ data }) {
-  const { id, name, videoList } = data;
+  const { dispatchPlayList } = usePlayList();
+  const [loader, setLoader] = useState(false);
+  let navigate = useNavigate();
+  const { _id, name, list } = data;
+
+  const removePlaylist = () => {
+    const userId = userInfo()?.user?._id;
+    removeListFromPlaylist(userId, _id, dispatchPlayList, setLoader);
+  };
+
+  const navigation = () => {
+    return navigate(`/playlist/${name}/${_id}`);
+  };
   return (
-    <div key={id} className="playlist-card">
-      <Link to={`/playlist/${name}/${id}`}>
-        <img src={playlistImage} alt={name} />
-      </Link>
+    <div className="playlist-card">
+      <img
+        src={playlistImage}
+        alt={name}
+        onClick={navigation}
+        className="pointer-cursor"
+      />
       <article>
-        <p className="playlist-card__heading">{name}</p>
-        <p className="playlist-card__count">
-          No. of videos : {videoList.length}
+        <p
+          className="playlist-card__heading pointer-cursor"
+          onClick={navigation}
+        >
+          {name}
         </p>
-        <DeleteIcon className="delete-icon" />
+        <p className="playlist-card__count">No. of videos : {list.length}</p>
+        <div
+          style={{ height: "2rem", width: "2rem" }}
+          className="pointer-cursor"
+        >
+          {loader ? (
+            <MiniLoader
+              spinner={false}
+              size={{ height: "1.25rem", width: "1.25rem" }}
+            />
+          ) : (
+            <DeleteIcon className="delete-icon" onClick={removePlaylist} />
+          )}
+        </div>
       </article>
     </div>
   );
