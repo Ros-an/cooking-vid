@@ -73,6 +73,7 @@
 .dropdown-content p {
   color: black;
   padding: 0.75rem 1rem;
+  width: 11rem;
   text-decoration: none;
   display: block;
 }
