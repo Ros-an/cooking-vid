@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AddIcon from "@material-ui/icons/Add";
 import DoneIcon from "@material-ui/icons/Done";
-import { usePlayList } from "../ContextAPI/playlist-context";
+import { usePlayList } from "../context/playlist-context";
 import AddToPlayListBox from "./AddToPlayListBox";
 import ListOfPlayListInModal from "./ListOfPlayListInModal";
 import "./PlayListModal.css";
