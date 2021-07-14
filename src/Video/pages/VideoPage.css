@@ -34,7 +34,7 @@
 }
 .video-page .video-channel-and-control .control div {
   flex-direction: column;
-  margin: 0 1rem;
+  width: 4rem;
 }
 
 .video-page .video-channel-and-control .control div span {
@@ -43,6 +43,22 @@
 .video-page .video-channel-and-control .control .icon {
   font-size: 2rem;
 }
+.video-page .video-channel-and-control .control .icon:active {
+  font-size: 1.75rem;
+  color: var(--vid-primary);
+}
 .video-page .video-channel-and-control .control .liked {
   color: var(--vid-primary);
+}
+
+@media screen and (max-width: 680px) {
+  .video-page .video-channel-and-control .control div {
+    width: 3rem;
+  }
+  .video-page .video-channel-and-control .control .icon {
+    font-size: 1.75rem;
+  }
+  .video-page .video-channel-and-control .control .icon:active {
+    font-size: 1.5rem;
+  }
 }
