@@ -1,24 +1,28 @@
 import React, { useRef, useEffect, useState } from "react";
-import { usePlayList } from "../ContextAPI/playlist-context";
-
+import { usePlayList } from "../context/playlist-context";
+import { userInfo } from "../utils/authrelated";
+import { createPlaylist } from "../api/playlist_api";
+import { MiniLoader } from "./loader/Loader";
 const customStyleInput = {
   outlineColor: "var(--vid-primary)",
 };
 function AddToPlayListBox({ setterFun }) {
   const [playListName, setPlayListName] = useState("");
+  const [loader, setLoader] = useState(false);
   const { dispatchPlayList } = usePlayList();
   const inputRef = useRef(null);
   useEffect(() => {
-    console.log("this is inside useeffect");
     inputRef.current.focus();
   }, []);
-  console.log("this is after useeffect");
-  const playListNamingHandler = () => {
-    dispatchPlayList({
-      type: "SAVE_NEW_PLAYLIST",
-      payload: playListName,
-    });
-    setterFun(false);
+  const addList = () => {
+    const userId = userInfo()?.user._id;
+    createPlaylist(
+      userId,
+      playListName,
+      dispatchPlayList,
+      setterFun,
+      setLoader
+    );
   };
   return (
     <div className="playlist-modal__input">
@@ -29,15 +33,20 @@ function AddToPlayListBox({ setterFun }) {
         placeholder="ENTER NAME"
         style={customStyleInput}
         onChange={(e) => setPlayListName(e.target.value)}
-        onKeyPress={(e) => e.key === "Enter" && playListNamingHandler()}
+        onKeyPress={(e) => e.key === "Enter" && addList()}
       />
       <button
+        disabled={playListName.length === 0}
+        style={{ cursor: playListName.length === 0 && "no-drop" }}
         onClick={() => {
-          playListNamingHandler();
-          setterFun(false);
+          addList();
         }}
       >
-        ADD{" "}
+        {loader ? (
+          <MiniLoader spinner={true} size={{ height: "1rem", width: "1rem" }} />
+        ) : (
+          "ADD"
+        )}
       </button>
     </div>
   );
