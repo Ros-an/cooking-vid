@@ -46,6 +46,6 @@ Live Demo: [Cooking Vid](https://cooking-vid.netlify.app/)
 - Clone or download Cooking Vid repository
 - Direct path to Cooking Vid root folder
 - Install dependencies by
-   - npm install
+   - `npm install`
 - Run Socialize by command
-   - npm start
+   - `npm start`
