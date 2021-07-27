@@ -18,17 +18,17 @@ function SinglePlayList({ data }) {
     const userId = userInfo()?.user?._id;
     removeListFromPlaylist(userId, _id, dispatchPlayList, setLoader);
   };
-
   const navigation = () => {
     return navigate(`/playlist/${name}/${_id}`);
   };
   return (
     <div className="playlist-card">
       <img
-        src={playlistImage}
+        src={data.list.length ? data.list[0].image : `${playlistImage}`}
         alt={name}
         onClick={navigation}
         className="pointer-cursor"
+        width="190px"
       />
       <article>
         <p
