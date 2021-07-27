@@ -11,6 +11,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  text-transform: capitalize;
 }
 .category-list .category input {
   margin-right: 0.5rem;

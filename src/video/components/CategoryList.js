@@ -6,58 +6,33 @@ function CategoryList() {
     filters: { category },
     updateFilters,
   } = useFilterContext();
+  const catgryName = ["indian", "japanese", "korean", "italian"];
   return (
     <section className="category-list">
       <div className="category">
         <input
           type="radio"
           name="category"
-          checked={category === "all" && "all"}
+          checked={category === "all"}
           value="all"
           onChange={updateFilters}
         />{" "}
         All
       </div>
-      <div className="category">
-        <input
-          type="radio"
-          name="category"
-          value="indian"
-          checked={category === "indian" && "indian"}
-          onChange={updateFilters}
-        />{" "}
-        Indian
-      </div>
-      <div className="category">
-        <input
-          type="radio"
-          name="category"
-          value="japanese"
-          checked={category === "japanese" && "japanese"}
-          onChange={updateFilters}
-        />{" "}
-        Japanese
-      </div>
-      <div className="category">
-        <input
-          type="radio"
-          name="category"
-          value="korean"
-          checked={category === "korean" && "korean"}
-          onChange={updateFilters}
-        />{" "}
-        Korean
-      </div>
-      <div className="category">
-        <input
-          type="radio"
-          name="category"
-          value="italian"
-          checked={category === "italian" && "italian"}
-          onChange={updateFilters}
-        />{" "}
-        Italian
-      </div>
+      {catgryName.map((cat, index) => {
+        return (
+          <div className="category" key={index}>
+            <input
+              type="radio"
+              name="category"
+              checked={category === cat}
+              value={cat}
+              onChange={updateFilters}
+            />{" "}
+            {cat}
+          </div>
+        );
+      })}
     </section>
   );
 }
