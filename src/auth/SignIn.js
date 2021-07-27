@@ -42,7 +42,7 @@ function SignIn({ toggleForm }) {
     }));
   };
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event?.preventDefault();
     if (readyToSubmit) {
       try {
         setLoading(true);
@@ -72,6 +72,12 @@ function SignIn({ toggleForm }) {
     }
   };
 
+  const signinAsGuest = () => {
+    setFormField({
+      email: "kumar@gmail.com",
+      password: "@Kumar12",
+    });
+  };
   return (
     <div className="formBx">
       <form onSubmit={handleSubmit}>
@@ -81,6 +87,7 @@ function SignIn({ toggleForm }) {
           name="email"
           placeholder="Email"
           onChange={handleChange}
+          value={email}
         />
         <div className="password-section">
           <input
@@ -103,6 +110,13 @@ function SignIn({ toggleForm }) {
         </div>
         <button type="submit" disabled={readyToSubmit ? false : true}>
           {loading ? "Signing..." : "Sign In"}
+        </button>
+        <button
+          type="submit"
+          className="signin-as-guest"
+          onClick={signinAsGuest}
+        >
+          Sign In as Guest
         </button>
         <p className="signup">
           Don't have an account ?
