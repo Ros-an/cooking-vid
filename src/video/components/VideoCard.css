@@ -5,6 +5,7 @@
   flex: 1 1 0;
   position: relative;
 }
+
 .video-card a {
   text-decoration: none;
 }
@@ -53,6 +54,20 @@
 .video-card__text > p {
   font-size: 0.875rem;
   color: gray;
+}
+/* Skeleton
+ */
+ .video-card__skeleton {
+  background-color: white;
+  /* max-width: 19rem; */
+  padding: 0.5rem;
+}
+.video-card__skeleton .video-card__text{
+width: 100%;
+}
+.video-card__skeleton .video-card__text > p:last-child {
+  display: flex;
+  justify-content: space-between;
 }
 /* --------DROPDOWNLIST--------- */
 

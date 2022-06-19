@@ -11,27 +11,14 @@ import VideoPage from "./video/pages/VideoPage";
 import PrivateRoute from "./private/PrivateRoute";
 import PlayListVideoList from "./pages/PlayListVideoList";
 import { useAuthContext } from "./context/auth-context";
-import { useVideoContext } from "./context/videoContext";
 import { Routes, Route } from "react-router-dom";
-import { Loader } from "./shared/loader/Loader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PlayListModal from "./shared/PlayListModal";
 import "./style.css";
 function App() {
   const { authPage } = useAuthContext();
-  const { loader } = useVideoContext();
-  if (loader) {
-    return (
-      <>
-        <Loader
-          spinner={false}
-          size={{ height: "2.5rem", width: "2.5rem" }}
-          select={true}
-        />
-      </>
-    );
-  }
+  
   return (
     <div className="App">
       <Header />
